@@ -1,0 +1,37 @@
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{listings}
+
+\setlength{\textheight}{\paperheight}
+\setlength{\topmargin}{4.6truemm} % 30mm(=1.0in+4.6mm)
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+\addtolength{\textheight}{-60truemm}
+
+\setlength{\textwidth}{\paperwidth}
+\setlength{\oddsidemargin}{-0.4truemm} % 25mm(=1.0in-0.4mm)
+\setlength{\evensidemargin}{-0.4truemm}
+\addtolength{\textwidth}{-50truemm}
+
+\pagestyle{fancy}
+\rhead{\thepage}
+\lhead{}
+\cfoot{}
+
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\lstlistingname}{ソースコード}
+\renewcommand{\headrulewidth}{0mm} % fancy
+
+\lstset{
+  basicstyle={\ttfamily \small},
+  frame=trBL,
+  numbers=left,
+  numberstyle={\ttfamily \small},
+  breaklines=true,
+}

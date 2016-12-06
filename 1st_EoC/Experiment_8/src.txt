@@ -1,0 +1,125 @@
+;-----------------------------------
+;2 進数表示回路
+;-----------------------------------
+LIST     P=PIC16F84A
+INCLUDE  P16F84A.INC
+__CONFIG _HS_OSC & _WDT_OFF & _PWRTE_ON & _CP_OFF
+ERRORLEVEL -302
+
+;--------- ラベル設定---------------------
+RA0      EQU 00
+RA1      EQU 01
+CNT1M    EQU 0C
+CNT10M   EQU 0D
+CNT100M  EQU 0E
+CNT500M  EQU 0F
+CNT1S    EQU 10
+COUNTER  EQU 11
+
+;---------- 点灯設定---------------------
+P00 EQU B'01111110'
+P01 EQU B'10111101'
+P02 EQU B'11011011'
+P03 EQU B'11100111'
+P04 EQU B'11011011'
+P05 EQU B'10111101'
+P06 EQU B'01111110'
+P07 EQU B'11111111'
+
+;-----------------------------------
+; プログラム開始
+;-----------------------------------
+ORG 0
+GOTO INIT
+ORG 4 ;割り込み開始番地
+GOTO INIT
+
+;----------- 初期化---------------------
+INIT    BSF STATUS, RP0
+	MOVLW H'FF'
+	MOVWF TRISA
+	CLRF TRISB
+	BCF STATUS, RP0
+	MOVLW H'FF'
+	MOVWF PORTB
+	CLRF COUNTER
+
+;---------- メインループ--------------------
+KEYSCAN BTFSS PORTA, RA0
+	CALL FUNC0
+	BTFSS PORTA, RA1
+	CALL FUNC1
+	GOTO KEYSCAN
+;---------- キーカウンタ--------------------
+FUNC0    CALL T10M ; チャタリング待ち
+	 BTFSS PORTA, RA0
+	 GOTO FUNC0LB1
+	 RETURN
+
+FUNC0LB1 INCF COUNTER, F
+	 MOVFW COUNTER
+	 COMF COUNTER, W
+	 MOVWF PORTB
+
+FUNC0LB2 BTFSS PORTA, RA0
+	 GOTO FUNC0LB2
+	 RETURN
+
+;--------- 点灯制御関数---------------------
+FUNC1    CLRF COUNTER
+	 MOVLW P00
+	 MOVWF PORTB
+	 CALL T100M
+	 MOVLW P01
+	 MOVWF PORTB
+	 CALL T100M
+	 MOVLW P02
+	 MOVWF PORTB
+	 CALL T100M
+
+	 MOVLW P03
+	 MOVWF PORTB
+	 CALL T100M
+
+	 MOVLW H'FF'
+	 MOVWF PORTB
+	 CALL T100M
+	 RETURN
+;-----------------------------------
+T1M      MOVLW D'200'
+	 MOVWF CNT1M
+TM1LP1	 NOP
+	 NOP
+	 DECFSZ CNT1M, F
+	 GOTO TM1LP1
+	 RETURN
+
+T10M     MOVLW D'10'
+	 MOVWF CNT10M
+TM2LP    CALL T1M
+	 DECFSZ CNT10M, F
+	 GOTO TM2LP
+	 RETRUN
+
+T100M     MOVLW D'10'
+	 MOVWF CNT100M
+TM3LP    CALL T10M
+	 DECFSZ CNT100M, F
+	 GOTO TM3LP
+	 RETRUN
+
+T500M     MOVLW D'5'
+	 MOVWF CNT500M
+TM4LP    CALL T100M
+	 DECFSZ CNT500M, F
+	 GOTO TM4LP
+	 RETRUN
+
+T1S     MOVLW D'12'
+	 MOVWF CNT1S
+TM5LP    CALL T500M
+	 DECFSZ CNT1S, F
+	 GOTO TM5LP
+	 RETRUN
+
+END

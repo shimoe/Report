@@ -1,0 +1,373 @@
+\documentclass[11pt,a4paper]{jsarticle}
+\usepackage[dvips]{graphicx}
+\usepackage{here}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\setcounter{page}{0}
+%
+\begin{document}
+
+\title{制御工学実験II \\ サーボモータのディジタル制御}
+\author{提出者 \\ 14104064 下松八重　宏太 \\ \\ 共同実験者 \\ 14101028 梶野　翔平 \\ 14104092 中島　美香 \\ 16104311 北山　拓夢 \\ 13104119 廣瀬　直人}
+\date{実験日 2016年7月4日 \\ 提出日 \today}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+
+\section{目的}
+ディジタル計算機をコントローラとして用いる場合，ソフトウェアで制御則を実現できるので，アナログ制御と比べ制御則の修正・変更が容易である．ここではサーボモータのディジタル制御実験を通じて，ディジタル制御の理解を深める．
+\section{原理}
+今回の実験で用いる制御系の構成を図\ref{fig1}に示す．図中の変数の意味を表\ref{tab1}に示す．$T$をサンプリング周期とし，簡単のため，時刻$kT(k=0,1,2,\cdots)$でのみ値を持つ離散時間信号，及び連続時間信号の両方が存在する．したがって，ディジタル制御系では離散時間信号を連続時間信号に変換するサンプラと零次ホールド，及び連続時間信号を離散時間信号に変換するサンプラが必要になる．なお離散時間信号を連続時間信号に変換するサンプラと零次ホールドは式\ref{eq1}に示す通り，時刻$kT$で入力された離散時間信号を1サンプリング時間保持し，一定値の連続時間信号を出力する．
+\begin{equation}
+ u(t) = u(kT)\ \ (kT \le t \leq (k+1)T)
+  \label{eq1}
+\end{equation}
+
+\begin{table}[b]
+ \begin{center}
+  \caption{制御系の各変数}
+  \label{tab1}
+  \begin{tabular}{|c|c|} \hline
+   変数 & 意味 \\ \hline \hline
+   $\Theta_d (k)$ & 目標角度(離散時間信号) \\ \hline
+   $e(k)$         & 制御偏差(離散時間信号) \\ \hline
+   $u(k)$         & 制御入力(離散時間信号) \\ \hline
+   $u(t)$         & 制御入力(連続時間信号) \\ \hline
+   $\theta (t)$   & 出力角度(連続時間信号) \\ \hline
+   $\theta (k)$   & 制御出力(離散時間信号) \\ \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+次に，この制御系のパルス伝達関数を求める．まず，$u(k),\theta (k)$の$z$変換をそれぞれ，$U(z) = Z[u(k)],\Theta (z) = Z[\theta (k)]$とすると，制御対象のパルス伝達関数は
+\begin{eqnarray}
+ G_p (z) & = & \frac{\Theta(z)}{U(z)} = Z[\frac{1-e^{-Ts}}{s} \frac{1}{s}] = (1-z^{-1})z[\frac{1}{s^2}] \nonumber \\ 
+& = & \frac{T}{z-1}
+\end{eqnarray}
+となる．ここで，ディジタル計算機は制御入力を求めるための演算時間を必要とする．すなわち時刻$kT$の制御偏差時刻$e(kT)$を用いて求めた制御入力$u(kT)$は，実際には時刻$(k+1)T$に制御対象に入力される．この演算時間遅れを考え，制御対象のパルス伝達関数を次式に示す．
+\begin{equation}
+ G_p (z) = \frac{\Theta(z)}{U(z)} = \frac{T}{z^2-z}
+\end{equation}
+制御系のブロック線図を図\ref{fig2}に示す．図\ref{fig2}より，制御系のパルス伝達関数は
+\begin{equation}
+ G(z) = \frac{\Theta(z)}{\Theta_d (z)} = \frac{gT}{z^2-z+gT}
+\label{eq4}
+\end{equation}
+となり，その極を$P_i (i = 1,2)$とすると，$|P_i| < 1$，すなわち
+\begin{equation}
+ 0 < g < \frac{1}{T}
+\label{eq5}
+\end{equation}
+であれば制御系は漸近安定となる．
+
+\section{実験方法}
+定数ゲイン$g = 1.0,2.1$として制御プログラムに定常ゲインを入力する．サンプリング周期を$0.02,0.1,0.5[s]$としてそれぞれの場合で実験を行う．目標角度は$60$[deg]とする．
+
+\section{結果と考察}
+実験結果を表\ref{tab2}から表\ref{tab7}，図\ref{fig3}から図\ref{fig8}に示す．
+
+\input{./table/experiment5.tex}
+\input{./table/experiment5-2.tex}
+\input{./table/experiment5-3.tex}
+\input{./table/experiment5-4.tex}
+\input{./table/experiment5-5.tex}
+\input{./table/experiment5-6.tex}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph2.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/graph1.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.02[s]のときの実験結果}
+  \label{fig3}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph3.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/graph4.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.1[s]のときの実験結果}
+  \label{fig4}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph5.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/graph6.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.5[s]のときの実験結果}
+  \label{fig5}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph7.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.7]{./picture/graph8.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.02[s]のときの実験結果}
+  \label{fig6}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph9.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/graph10.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.1[s]のときの実験結果}
+  \label{fig7}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/graph11.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/graph12.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.5[s]のときの実験結果}
+  \label{fig8}
+ \end{center}
+\end{figure}
+
+
+\newpage
+\pagestyle{fancy}
+\setcounter{page}{1}
+\setcounter{section}{1}
+\setcounter{figure}{0}
+\renewcommand{\thepage}{$再$\,\arabic{page}}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{\thepage}
+\lhead{}
+\cfoot{}
+
+\section{原理}
+本実験で用いる制御系の構成を図\ref{fig1}に示す．
+
+\begin{figure}[b]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/5-blocks2.eps} 
+  \caption{制御系の構成}
+  \label{fig1}
+ \end{center}
+\end{figure}
+
+\setcounter{section}{3}
+
+\section{結果と考察}
+得られたグラフを図2から図7に示す．
+\begin{figure}[b]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph1.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph2.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.02[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph3.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph4.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.1[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph5.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph6.eps} \\
+  (b)角度
+  \caption{定数ゲイン1.0，サンプリング周期0.5[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph7.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph8.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.02[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph9.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph10.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.1[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.6]{./picture/regraph11.eps} \\
+  (a)入力電圧 \\
+  \includegraphics[scale=.6]{./picture/regraph12.eps} \\
+  (b)角度
+  \caption{定数ゲイン2.1，サンプリング周期0.5[s]のときの実験結果}
+ \end{center}
+\end{figure}
+
+
+図2から図2よりそれぞれのときの安定性，立ち上がり時間，整定時間，振動及び行き過ぎの有無を調べると，表\ref{tab7}のようになった．整定時間を求める際の許容誤差を$5\%$とした．
+
+\begin{table}[hb]
+ \begin{center}
+ \caption{得られたデータから得られた情報}
+  \label{tab7}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+   定数ゲイン & サンプリング周期$T$[s] & $\frac{1}{T}$ & 安定性 & 立ち上がり時間$T_r$[s] & 整定時間$T_s$[s] & 振動 & 行き過ぎ \\ \hline 
+      & 0.02 & 50 & 安定   & 1.4 & 1.9 & 無 & 無 \\ \cline{2-8} 
+  1.0 & 0.1  & 10 & 安定   & 1.1 & 1.5 & 無 & 無 \\ \cline{2-8}
+      & 0.5  & 2  & 安定   &  -  & 17  & 有 & 有 \\ \hline
+      & 0.02 & 50 & 安定   & 0.6 & 0.9 & 無 & 無 \\ \cline{2-8}
+  2.1 & 0.1  & 10 & 安定   & 0.3 & 0.7 & 無 & 有 \\ \cline{2-8}
+      & 0.5  & 2  & 不安定 &  -  &  -  & 有 & 有 \\ \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+
+
+\subsection{伝達関数の安定性}
+式\ref{eq4}より伝達関数の安定性を調べる．この伝達関数の特性方程式は
+\begin{equation}
+ z^2-x+gT = 0
+  \label{eq6}
+\end{equation}
+次の式よりz平面からs平面へ双一次変換を行う．
+\begin{equation}
+ z = \frac{s+1}{s-1}
+\end{equation}
+これを式\ref{eq6}に代入して，
+\begin{eqnarray}
+ \left( \frac{s+1}{s-1} \right)^2 - \left( \frac{s+1}{s-1} \right)+gT = 0 \nonumber \\ \label{eq8}
+ gTs^2 + 2(1-gT)s +2 + gT = 0
+\end{eqnarray}
+式\ref{eq8}よりフルビッツ行列を用いて安定判別を行う． \\
+まず，安定条件は
+\begin{eqnarray*}
+ gT > 0，2(1-gT) > 0
+\end{eqnarray*}
+また，フルビッツ行列より
+\begin{eqnarray*}
+\mathrm{det} \left|
+	      \begin{array}{ccc}
+	       2(1-gT) &     0   \\
+	          gT   &   2+gT  \\
+	      \end{array}
+	     \right| > 0 \\
+ (1-gT)(2+gT) > 0 \\
+ g < \frac{2}{T}
+\end{eqnarray*}
+以上の条件から，伝達関数の安定条件は
+\begin{eqnarray*}
+ 0 < g < \frac{1}{T}
+\end{eqnarray*}
+となる．
+
+\subsection{定数ゲインとサンプリング周期の変化による実験結果の変化}
+この制御系は2次遅れ系であり，定数ゲインを大きくすれば立ち上がり時間は短くなる．また，グラフよりサンプリング周期が長い方が立ち上がり時間が短くなっていることがわかる．
+
+
+\newpage
+\pagestyle{fancy}
+\setcounter{page}{1}
+\setcounter{section}{4}
+\setcounter{figure}{0}
+\renewcommand{\thepage}{$再々$\,\arabic{page}}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{\thepage}
+\lhead{}
+\cfoot{}
+
+
+\section{考察}
+\subsection{極配置による安定判別}
+伝達関数の極の実数部分が複素平面上で全て負であれば安定となる．
+式8よりこの伝達関数の極は
+\begin{equation}
+ s = \frac{-(1-gT) \pm \sqrt{1-4gT}}{gT}
+\end{equation}
+となる．$gT > 0.25$のとき，平方根の項が虚部となる．このとき，伝達関数が安定となるのは
+\begin{eqnarray*}
+ 1-gT & > & 0 \\
+ g & < & \frac{1}{T}
+\end{eqnarray*}
+である．$0 < gT < 0.25$のときは
+\begin{eqnarray*}
+ -(1-gT)+\sqrt{1-4gT} & < & 0 \\
+ 1-gT & > & \sqrt{1-4gT} \\
+1-2gT+(gT)^2 & > & 1-4gT \\
+g & < & \frac{2}{T}
+\end{eqnarray*}
+となる．よって，安定条件は$0 < g < \frac{1}{T}$である．
+
+\subsection{定数ゲインとサンプリング周期の変化による実験結果の変化}
+式4より
+\begin{equation}
+ \Theta(z) = \frac{gT}{z^2-z+gT} \frac{rz}{z-1}
+\end{equation}
+これを逆z変換する．
+\begin{eqnarray*}
+Z^{-1}[\Theta(z)] & = & r\sum_{k = 0}^n g(k)
+\end{eqnarray*}
+$g(k)$について考えると
+\begin{eqnarray}
+ \frac{G(z)}{z} & = & \frac{rgT}{(z^2-z+gT)z} \nonumber \\
+ & = & \frac{rgT}{(z+1+\sqrt{1-4gT})(z+1-\sqrt{1-4gT})z} \nonumber \\
+ & = & rgT \left( \frac{2\sqrt{1-4gT} + 2 - 8gT}{z+1+\sqrt{1-4gT}} 
+               - \frac{2\sqrt{1-4gT} - 2 + 8gT}{z+1+\sqrt{1+4gT}} 
+               + \frac{4gT}{z} \right)
+\end{eqnarray}
+ここで，
+\begin{equation}
+ G(z) = rgT \left( \frac{a_1}{1 + b_1 z^{-1}} - \frac{a_2}{1 + b_2 z^{-1}} + 4gT \right)
+\end{equation}
+と置くと，
+\begin{equation}
+ g(k) = rgT(a_1 b_1^k u_s(k) + a_2 b_2^k u_s(k) + \delta(k))
+\end{equation}
+となる．また，
+\begin{eqnarray*}
+ a_1 & = & 2\sqrt{1-4gT} + 2 - 8gT \\
+ a_2 & = & 2\sqrt{1-4gT} - 2 + 8gT \\
+ b_1 & = & 1+\sqrt{1-4gT} \\
+ b_2 & = & 1+\sqrt{1+4gT}
+\end{eqnarray*}
+である．これより，ゲイン$g$を大きくすると$\theta(k)$の各項の値は大きくなるので立ち上がり時間が短くなる．また整定時間も短くなる．同様にサンプリング周期$T$が大きくなれば立ち上がり時間，整定時間が短くなる．しかし，サンプリング周期$T$は大きくしすぎると安定条件を外れてしまう．また，実験で得られたグラフからゲイン$g$が大きいと振動しやすくなることがわかる．よって，どちらも大きすぎず小さすぎない値に設定するべきである．
+
+\begin{thebibliography}{2}
+ \bibitem{} 高橋，``ディジタル制御''，岩波書店，1985．
+ \bibitem{} 足立，``'信号・システム理論の基礎'，コロナ社，2014．
+\end{thebibliography}
+
+
+\end{document}

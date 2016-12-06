@@ -1,0 +1,274 @@
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  26 JUL 2016 09:00
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**experiment5.tex
+(./experiment5.tex
+pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
+Babel <3.9h> and hyphenation patterns for 11 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/platex/jsclasses/jsarticle.cls
+Document Class: jsarticle 2013/05/14 okumura
+LaTeX Info: Redefining \rmfamily on input line 332.
+LaTeX Info: Redefining \sffamily on input line 335.
+LaTeX Info: Redefining \ttfamily on input line 338.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 403.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 593.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 593.
+\fullwidth=\dimen118
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 740.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 740.
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\@abstractbox=\box41
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+LaTeX Info: Redefining \TeX on input line 1697.
+LaTeX Info: Redefining \LaTeX on input line 1723.
+LaTeX Info: Redefining \LaTeXe on input line 1748.
+\heisei=\count89
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+(/usr/share/texlive/texmf-dist/tex/latex/here/here.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count90
+\float@exts=\toks16
+\float@box=\box42
+\@float@everytoks=\toks17
+\@floatcapt=\box43
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count91
+\LTcapwidth=\dimen123
+\LT@head=\box44
+\LT@firsthead=\box45
+\LT@foot=\box46
+\LT@lastfoot=\box47
+\LT@cols=\count92
+\LT@rows=\count93
+\c@LT@tables=\count94
+\c@LT@chunks=\count95
+\LT@p@ftn=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip47
+\f@ncyO@elh=\skip48
+\f@ncyO@erh=\skip49
+\f@ncyO@olh=\skip50
+\f@ncyO@orh=\skip51
+\f@ncyO@elf=\skip52
+\f@ncyO@erf=\skip53
+\f@ncyO@olf=\skip54
+\f@ncyO@orf=\skip55
+)
+(./experiment5.aux
+
+LaTeX Warning: Label `tab7' multiply defined.
+
+)
+\openout1 = `experiment5.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 16.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 16.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 16.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 16.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 16.
+ [0
+
+]
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 21.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 21.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 21.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 21.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 24.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 24.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 24.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 32.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 32.
+ [1]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 55.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 55.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 55.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 55.
+
+
+LaTeX Warning: Reference `fig2' on page 2 undefined on input line 55.
+
+
+LaTeX Warning: Reference `fig2' on page 2 undefined on input line 55.
+
+(./table/experiment5.tex [2] [3]) (./table/experiment5-2.tex [4] [5])
+(./table/experiment5-3.tex [6] [7]) (./table/experiment5-4.tex [8])
+(./table/experiment5-5.tex [9] [10]) (./table/experiment5-6.tex [11] [12])
+File: ./picture/graph2.eps Graphic file (type eps)
+
+<./picture/graph2.eps>
+File: ./picture/graph1.eps Graphic file (type eps)
+ <./picture/graph1.eps> [13]
+File: ./picture/graph3.eps Graphic file (type eps)
+ <./picture/graph3.eps>
+File: ./picture/graph4.eps Graphic file (type eps)
+
+<./picture/graph4.eps>
+File: ./picture/graph5.eps Graphic file (type eps)
+ <./picture/graph5.eps>
+File: ./picture/graph6.eps Graphic file (type eps)
+ <./picture/graph6.eps> [14]
+File: ./picture/graph7.eps Graphic file (type eps)
+
+<./picture/graph7.eps>
+File: ./picture/graph8.eps Graphic file (type eps)
+ <./picture/graph8.eps>
+File: ./picture/graph9.eps Graphic file (type eps)
+ <./picture/graph9.eps>
+File: ./picture/graph10.eps Graphic file (type eps)
+
+<./picture/graph10.eps> [15]
+File: ./picture/graph11.eps Graphic file (type eps)
+ <./picture/graph11.eps>
+File: ./picture/graph12.eps Graphic file (type eps)
+ <./picture/graph12.eps>
+[16]
+File: ./picture/5-blocks2.eps Graphic file (type eps)
+ <./picture/5-blocks2.eps>
+Overfull \hbox (50.25002pt too wide) in paragraph at lines 164--165
+ [] 
+ []
+
+File: ./picture/regraph1.eps Graphic file (type eps)
+<./picture/regraph1.eps>
+File: ./picture/regraph2.eps Graphic file (type eps)
+ <./picture/regraph2.eps>
+File: ./picture/regraph3.eps Graphic file (type eps)
+ <./picture/regraph3.eps>
+File: ./picture/regraph4.eps Graphic file (type eps)
+
+<./picture/regraph4.eps> [1]
+File: ./picture/regraph5.eps Graphic file (type eps)
+ <./picture/regraph5.eps>
+File: ./picture/regraph6.eps Graphic file (type eps)
+ <./picture/regraph6.eps>
+File: ./picture/regraph7.eps Graphic file (type eps)
+
+<./picture/regraph7.eps>
+File: ./picture/regraph8.eps Graphic file (type eps)
+ <./picture/regraph8.eps> [2]
+File: ./picture/regraph9.eps Graphic file (type eps)
+ <./picture/regraph9.eps>
+File: ./picture/regraph10.eps Graphic file (type eps)
+
+<./picture/regraph10.eps>
+File: ./picture/regraph11.eps Graphic file (type eps)
+ <./picture/regraph11.eps>
+File: ./picture/regraph12.eps Graphic file (type eps)
+ <./picture/regraph12.eps>
+[3]
+Overfull \hbox (67.90721pt too wide) in paragraph at lines 245--254
+ [] 
+ []
+
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 259.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 259.
+[4] [5] [1] [2] (./experiment5.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1106 strings out of 495129
+ 12946 string characters out of 6182595
+ 100910 words of memory out of 5000000
+ 4443 multiletter control sequences out of 15000+600000
+ 14878 words of font info for 67 fonts, out of 8000000 for 9000
+ 85 hyphenation exceptions out of 8191
+ 25i,12n,43p,581b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on experiment5.dvi (24 pages, 85400 bytes).

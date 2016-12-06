@@ -1,0 +1,473 @@
+\documentclass[11pt,a4paper]{jsarticle}
+\usepackage[dvips]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{here}
+\usepackage{longtable}
+\setcounter{page}{0}
+%
+\begin{document}
+
+\title{制御工学実験II \\ レベル系の同定}
+\author{提出者 \\ 14104064 下松八重　宏太 \\ \\ 共同実験者 \\ 14101028 梶野　翔平 \\ 14104092 中島　美香 \\ 16104311 北山　拓夢 \\ 13104119 廣瀬　直人}
+\date{実験日 2016年6月21日 \\ 提出日 \today}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+
+ \section{目的}
+制御対象は，サーボ系とプロセス系の二つに分類出来る．ここでは，過渡応答が遅いプロセス系の一つであるレベル系を取り上げ，流入量および水位をそれぞれ入力及び出力とした制御対象の同定実験を行い，プロセス系の理解を深める．
+
+ \section{原理}
+ まず，図\ref{fig1}に本実験で用いるレベル系のモデルを示す．ただし，図の記号は
+ \begin{description}
+  \item[] {\it u}:タンク1への流入量 
+  \item[] $q_i$:タンク{\it i}からの流入量（{\it i} = 1,2）
+  \item[] $h_i$:タンク{\it i}の水位（{\it i} = 1,2）
+  \item[] $A_i$:タンク{\it i}の断面積（{\it i} = 1,2）
+  \item[] $R_i$:流体抵抗（{\it i} = 1,2） 
+ \end{description}
+ を意味する． \\
+ 　本実験では，タンク１への流入量{\it u}を入力とし，タンク２の水位$h_2$を出力とする制御対象の同定を行う．制御対象の伝達関数は
+ \begin{equation}
+  \frac{H_2(s)}{U(s)} = \frac{R_2}{(1 + A_1 R_1 s)(1 + A_2 R_2 s)}
+   \label{eq1}
+x \end{equation}
+ となる．したがって対象とする系は二次遅れ系である．ただし，式\ref{eq1}の$U(s)$および$H_2(s)$は，それぞれ{\it u}および$h_2$に対応するラプラス変換後の変数である． \\
+　つぎに，二次遅れ系のゲインおよび二つの時定数の決定法を述べる．まず，ゲイン{\it K}，二つの時定数$T_1，T_2$の二次遅れ系
+\begin{equation}
+ G(s) = \frac{H(s)}{U(s)} = \frac{K}{(1 + T_1 s)(1 + T_2 s)}
+\end{equation} 
+ に，大きさ{\it r}のステップ入力を加えたときの時間応答$h(t)$は
+\begin{equation}
+ h(t) = rK(1+\frac{T_1}{T_2 - T_1} e^{-\frac{t}{T_1}} - \frac{T_2}{T_2 - T_1} e^{-\frac{t}{T_2}} )
+\label{eq3}
+\end{equation}
+となり，また，応答曲線は図\ref{fig2}のようになる．ただし，図の点$C$は式\ref{eq3}の変曲点であり，点$A$と点$B$はそれぞれ点$C$における接線が$h(t) = 0, h(\infty)$と交わる点である．また，$T_A = t_b - t_a,T_B = tb - t_c$である．\\
+　つぎに，式\ref{eq3}より次の二式を得る．
+\begin{eqnarray}
+ {\dot h(t)} & = & \frac{rK}{T_2 - T_1}(-e^{-\frac{t}{T_1}} + e^{-\frac{t}{T_2}}) \\ \label{eq4}
+ {\ddot h(t)} & = & \frac{rK}{T_2 - T_1}(-e^{\frac{1}{T_1} \frac{t}{T_1}} + \frac{1}{T_2} e^{-\frac{t}{T_2}})
+\end{eqnarray}
+ここで，$\ddot{h(t_c)} = 0$より，
+\begin{eqnarray}
+ T_2 e^{-\frac{t_c}{T_1}} = T_1 e^{\frac{t_c}{T_2}} \\ \label{eq6}
+t_c = \ln{(\frac{T_2}{T_1})}^{\frac{T_1 T_2}{T_2 - T_1}}
+\end{eqnarray}
+さらに，接線$AB, CB$についてそれぞれの傾きについて考えると，式\ref{eq4}と図\ref{fig2}より次の二式を得る．
+\begin{eqnarray}
+  \frac{r K}{T_2 - T_1} \biggl( - e^{- \frac{t_c}{T_1}} + e^{- \frac{t_c}{T_2}} \biggr) &=& \frac{r K}{T_A} \\
+  \frac{r K - h(t_c)}{T_C} &=& \frac{r K}{T_A}
+\end{eqnarray}
+式6，8より
+\begin{equation}
+  \frac{T_A}{T_1} e^{- \frac{t_c}{T_1}} = 1
+\end{equation}
+となり，式10に式7を代入すると次式を得る．
+\begin{equation}
+  \frac{T_A}{T_1} \biggl( \frac{T_2}{T_1} \biggr) ^{- \frac{T_2}{T_2 - T_1}} = 1
+\end{equation}
+また，式3，8，9より，
+\begin{equation}
+  T_2 e^{- \frac{t_c}{T_2}} - T_1 e^{- \frac{t_c}{T_1}} = T_C e^{- \frac{t_c}{T_2}} - T_C e^{- \frac{t_c}{T_1}}
+\end{equation}
+となるので，式12に式6を代入すると次式を得る．
+\begin{equation}
+  T_2 + T_1 = T_C
+\end{equation}
+したがって，式11，13を用いて，
+$T_A$，$T_C$から$T_1$，$T_2$を求める事が出来る．
+式11，13より
+\begin{eqnarray}
+  \frac{T_A}{T_1} \biggl( \frac{\frac{T_2}{T_A}}{\frac{T_1}{T_A}} \biggr) ^{\frac{\frac{T_2}{T_A}}{\frac{T_2}{T_A} - \frac{T_1}{T_A}}} = 1 \\
+  \frac{T_C}{T_A} = \frac{T_1}{T_A} + \frac{T_2}{T_A}
+\end{eqnarray}
+を得るので，
+\begin{equation}
+  x \equiv \frac{T_1}{T_A}, \hspace{5mm}
+  y \equiv \frac{T_2}{T_A}, \hspace{5mm}
+  \alpha \equiv \frac{T_C}{T_A}, \hspace{5mm}
+\end{equation}
+と定義すると，式14，15は，
+\begin{eqnarray}
+  \frac{1}{x} \biggl( \frac{y}{x} \biggr) ^{- \frac{y}{y - x}} = 1 \\
+  \alpha = x + y
+\end{eqnarray}
+となる．また，式17より
+\begin{equation}
+  x \log{x} = y \log{y}
+\end{equation}
+を得る．この式19のデータを表\ref{fig1}に示す．
+式18の$\alpha$が与えられれば，図\ref{fig1}に示すように，
+式18と式19の交点のx座標$x_1$，$x_2$が得られる．
+したがって，$x_1$，$x_2$を用いることにより，
+式16より制御対象の二つの時定数$T_1$，$T_2$を求めることが出来る．\\
+\begin{table}[hb] 
+  \begin{center}
+    \caption{式（2.19）のデータ}
+    \begin{tabular}{|c|c|} \hline
+      $x$ & $y$   \\ \hline \hline
+      0   & 1     \\ \hline
+      0.1 & 0.73  \\ \hline
+      0.2 & 0.57  \\ \hline
+      0.3 & 0.44  \\ \hline
+      0.4 & 0.34  \\ \hline
+      0.5 & 0.25  \\ \hline
+      0.6 & 0.18  \\ \hline
+      0.7 & 0.12  \\ \hline
+      0.8 & 0.065 \\ \hline
+      0.9 & 0.025 \\ \hline
+      1   & 0     \\ \hline
+    \end{tabular}
+    \label{tab:log}
+  \end{center}
+\end{table}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.5\hsize]{./img/log_relation.eps}
+  \end{center}
+  \caption{式（2.18）と式（2.19）の関係}
+  \label{fig1}
+\end{figure}
+
+\newpage
+
+\section{実験装置}
+まず，図\ref{fig:config}及び表\ref{tab:spec}にレベル実験装置の構成及び仕様を示す．
+\input{./table/table_spec.tex}
+計算機からD/A変換器を介して入力される電流値によって制御バルブMV1の開度が変化し，
+このバルブ開度に対応した流量の水がタンク1に入り
+手動バルブを介してタンク2に流入する．
+また，タンク2から制御バルブMV3を介して水が排出される．
+これら入出流量に依存するタンクの水位は差圧変換器によって計測され，
+D/A変換器を介して計算機に伝送される．\\
+
+\begin{figure}[b]
+  \begin{center}
+    \includegraphics[width=0.8\hsize]{./img/system_config.eps}
+  \end{center}
+  \caption{実験装置の構成}
+  \label{fig:config}
+\end{figure}
+
+ \section{実験方法}
+以下の手順で実験準備を行った．
+ただし，以下の手順1から5は実験指導担当者が行った．
+\begin{enumerate}
+  \item 配電盤のレベル系のスイッチを入れる．
+  \item コンピュータの電源を入れる．
+  \item 実験装置の電源スイッチを入れる．
+  \item 給水用バルブ$V_1$を開く．
+  \item 実験用プログラムを起動して以下の操作を行う．
+        本実験ではUSER3のホームディレクトリexp3に格納されている下記の2種のプログラムを使用する．
+    \begin{enumerate}
+      \setlength{\leftskip}{5mm}
+      \item \texttt{expapp}：差圧変換器特性の調査実験と流量の調整，タンク2の水抜きを行う．
+      \item \texttt{step}：開ループ実験用プログラム．
+    \end{enumerate}
+  \item プログラム\texttt{expapp}を実行し以下の操作を行う．
+    \begin{enumerate}
+      \setlength{\leftskip}{5mm}
+      \item 排水用電磁弁MV3への入力を$20 \, \mathrm{[mA]}$とし全開にする．
+      \item 入水用電磁弁MV1への入力を$20 \, \mathrm{[mA]}$とし全開にする．
+      \item 流量計の指示値が$30 \, \mathrm{[l/min]}$になるように手動でバルブ$V_1$を調整する．
+    \end{enumerate}
+    操作用コンピュータのディスプレイに表示される図中の記号の意味を表\ref{tab:display}に示す．
+\end{enumerate}
+
+\input{./table/table_display.tex}
+
+\subsection{差圧変換器特性の調査実験}
+
+以下の手順で差圧変換器特性の調査実験を行った．
+\begin{enumerate}
+  \item プログラム\texttt{expapp}を起動する．
+  \item タンク2の定常水位が目的の初期水位となるよう入水用制御弁MV2を調整する．
+  \item 目的の定常水位におけるタンク2の差圧変換器出力電圧を記録する．
+  \item 手順(2)と(3)を水位がおよそ$60 \, \mathrm{[cm]}$となるまで繰り返す．
+  \item 差圧変換器の出力電圧と水位の関係のグラフを描く．
+\end{enumerate}
+
+\subsection{ステップ応答実験}
+
+以下の手順でステップ応答実験を行った．
+\begin{enumerate}
+  \item プログラム\texttt{step}を起動する．
+  \item プログラムの指示に従い(1)制御弁の初期値，(2)変化量，(3)サンプリング周期を入力する．
+  \item \texttt{[APPLY AND START]}をクリックして実験を開始する．
+  \item タンク2の水位が定常値に収束した後に\texttt{[Recording Start]}をクリックする．
+        10サンプルステップの後に手順(2)で与えた変化量の値だけさらに制御弁が開き，
+        タンク2の差圧変換器出力の計測が開始される．
+  \item 差圧変換器出力が定常値に収束した後に\texttt{[STOP]}をクリックし，データを保存する．
+\end{enumerate}
+
+ \section{結果}
+　\subsection{差圧変換器特性の調査実験}
+タンク２の水位と出力電圧を0[cm]から58[cm]まで5[cm]ごとに記録した．その結果を表\ref{tab1}，図\ref{fig3}に示す．
+\begin{table}[hb]
+\centering
+\caption{差圧変換器特性の実験結果}
+\label{tab1}
+ \begin{tabular}{|c|c|} \hline
+  水位　& 出力電圧 \\ \hline \hline
+  0	& -0.14 \\ \hline
+  4.8	& 0.374 \\ \hline
+  9.8	& 0.901 \\ \hline
+  14.9	& 1.385 \\ \hline
+  20	& 1.883 \\ \hline
+  25	& 2.352 \\ \hline
+  30.1	& 2.947 \\ \hline
+  35	& 3.455 \\ \hline
+  40.1	& 4.022 \\ \hline 
+  45.4  & 4.564 \\ \hline 
+  50.3	& 5.106 \\ \hline
+  55.1	& 5.624 \\ \hline
+  58	& 5.951 \\ \hline
+ \end{tabular}
+\end{table}
+\newpage
+\begin{figure}[hb]
+ \begin{center}
+  \includegraphics[scale = .7]{./picture/data1.eps}
+ \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{ステップ応答実験}
+制御弁の初期値を8$[mA]$，変化量を$1[mA]$，サンプリング周期を$5[sec]$として実験を行った． \\
+　得られたデータより時間-流入量グラフと時間-出力電圧のグラフを作製した．それぞれ図\ref{fig4},\ref{fig5}に示す．
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale = 1]{./picture/data2_1.eps}
+ \end{center}
+\caption{時間-流入量グラフ}
+\label{fig4}
+\end{figure}
+
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale = 1]{./picture/data2_2.eps}
+ \end{center}
+\caption{時間-出力電圧グラフ}
+\label{fig5}
+\end{figure}
+
+\newpage
+
+ \section{考察及び課題}
+  \subsection{差圧変換器特性の調査実験について}
+  得られたデータより，最小二乗法を用いて近似直線を求める．
+図\ref{fig:data1}のグラフについて$y = a x + b$とおくと，
+最小二乗法より$a$，$b$はそれぞれ以下のように表せる．
+\begin{eqnarray}
+  a &=& \frac{n \Sigma x_i y_i - \Sigma x_i \Sigma y_i}{n \Sigma {x_i}^2 - ( \Sigma x_i )^2} \\
+  b &=& \frac{\Sigma {x_i}^2 \Sigma y_i - \Sigma x_i y_i \Sigma x_i}{n \Sigma {x_i}^2 - ( \Sigma x_i )^2}
+\end{eqnarray}
+これらの式より，$a \simeq 0.1046$，$b \simeq -0.1714$となり，
+よって，差圧変換器出力-水位特性の関係式は，
+\begin{equation}
+  y = 0.1046x - 0.1714
+\end{equation}
+である．実験1のデータ点と共にグラフに表したものを図\ref{fig6}に示す．
+
+\newpage
+
+\begin{figure}[htb]
+ \begin{center}
+  \includegraphics[scale = 1]{./picture/data1_2.eps}
+ \end{center}
+\caption{差圧変換器特性の調査実験の結果と近似曲線}
+\label{fig6}
+\end{figure}
+
+\newpage
+
+\thispagestyle{fancy}
+\rhead{再1}
+\cfoot{}
+
+\subsection{差圧変換器特性について}
+図\ref{fig5}の変曲点を見つけるためにそれぞれの点において次の点との差をとり，それが最も大きい点を変曲点とした．これより，変曲点を$T_c = 155$[sec]とした．これより，接線は
+\begin{equation}
+ y = ax + 1.321 - 31a
+\end{equation}
+と求まる．接線として相応しいaを設定し，$a = 0.03$とした．これと$y = 4.227,y = 1.321$との交点より，$t_a, t_b$を求めると，$t_a = 50, t_b = 534$となり，これより$T_A, T_C$は以下のようになった．
+\begin{eqnarray}
+ T_A & = & t_b - t_a = 484 \\
+ T_C & = & t_b - t_c = 379
+\end{eqnarray}
+　式16より，$\alpha \simeq 0.783$となる．ここで，式19は解析的な解を求めるのが困難なため，表2よりデータをプロットし，$y = 0.783 - x$との交点における$x_1,x_2$をグラフより求める．結果をグラフに表した物を図\ref{fig7}に示す．
+
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale = 1]{./picture/log.eps}
+ \end{center}
+\end{figure}
+
+これより，$x_1 = 0.19,x_2 = 0.6$として，式18,19より$T_1,T_2$を求めると，$T_1 = 91.96$，$T_2 = 290.4$である．
+　式3より，$t \to \infty$として，
+\begin{equation}
+ h(\infty) = rK = 4.227 - 1.321 = 2.906
+\end{equation}
+
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々1}
+\cfoot{}
+\setcounter{section}{4}
+ \section{結果}
+  \subsection{差圧変換器特性の調査実験}
+  実験で得られたグラフを図\ref{fig8}に示す．
+ \begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale=1]{./picture/e6_1.eps}
+  \caption{差圧変換器の出力電圧と水位の関係}
+  \label{fig8}
+ \end{center}
+ \end{figure}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々2}
+\cfoot{}
+  \subsection{ステップ応答実験}
+  得られたグラフを図\ref{fig9},\ref{fig10}に示す．
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale=1]{./picture/e6_5.eps}
+  \caption{時間-流入量グラフ}
+  \label{fig9}
+ \end{center}
+\end{figure}
+
+\begin{figure}[h]
+ \begin{center}
+  \includegraphics[scale=1]{./picture/e6_4.eps}
+  \caption{時間-出力電圧グラフ}
+  \label{fig10}
+ \end{center}
+\end{figure}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々3}
+\cfoot{}
+
+ \section{考察について}
+  \subsection{差圧変換器特性の実験結果について}
+  求めた近似直線をグラフにしたものを図\ref{fig11}に示す．
+  \begin{figure}[h]
+   \begin{center}
+    \includegraphics[scale=1]{./picture/e6_2.eps}
+    \caption{差圧変換器特性の調査実験の結果と近似曲線}
+    \label{fig11}
+   \end{center}
+  \end{figure}
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々4}
+\cfoot{}
+
+  \subsection{差圧変換器特性について}
+  $\alpha = 0.783$より，式19との関係をグラフにしたものを図\ref{fig12}に示す．
+\begin{figure}[b]
+ \begin{center}
+  \includegraphics[scale=1]{./picture/e6_3.eps}
+  \caption{式19と$y = 0.783-x$}
+  \label{fig12}
+ \end{center}
+\end{figure}
+
+
+式26より
+\begin{equation}
+ h(\infty) = rK = 4.227 - 1.321 = 2.906
+\end{equation}
+ここで，図\ref{fig9}より，$r = (23.5-16.8) \div 60 = 0.11$として，$K \simeq 26.18$．\\
+よって，流入量から差圧変換器出力への伝達関数$G_1(s)$は
+\begin{equation}
+ G_1(s)= \frac{26.18}{(1+91.96s)(1+290.4s)}
+\end{equation}
+である．
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々5}
+\cfoot{}
+
+  \subsection{流入量から水位への伝達関数}
+  実験1および2の結果から，流入量を入力，
+  タンク2の水位を出力とした伝達関数$G_2(s)$を求める．
+  伝達関数は初期値を0と置くため，式22より
+  \begin{equation}
+   v(t) = 0.1046 h(t)
+  \end{equation}
+  である．これをラプラス変換すると
+  \begin{equation}
+   V(s) = 0.1046H(s)
+  \end{equation}
+  となる．これより，伝達関数$G_2(s)$は
+\begin{equation}
+ G_2(s)=\frac{H(s)}{U(s)}=\frac{H(s)}{V(s)} G_1(s) \simeq \frac{250.3}{(1+91.96s)(1+290.4s)}
+\end{equation}
+となる．
+
+  \subsection{伝達関数の妥当性}
+  求めた伝達関数について，$G_2(s)$に大きさ$r=0.11$のステップ入力を加えたときの時間応答は，初期値も考慮して，
+\begin{eqnarray*}
+ h(t) & = & 2.906(1+\frac{91.96}{290.4 - 91.96} e^{-\frac{t}{91.96}} - \frac{290.4}{290.4 - 91.96} e^{-\frac{t}{290.4}}) - 0.1714 \\
+ & = & 29.06(1+0.783e^{-\frac{t}{91.96}} - 1.783 e^{-\frac{t}{290.4}}) + 14.2
+\end{eqnarray*}
+となった．\\
+この式から時間-水位グラフを作成し，また差圧変換器-水位特性の近似直線を用いて実験で得られたデータから時間-水位グラフを作成した．図\ref{fig13}に示す．グラフより，定常値には大きな誤差は見られないが，立ち上がり時間において誤差が大きくなっている．また，立ち上がり時間は同定結果のほうが遅い．つまり，同定した伝達関数はゲインに関しては精度よく同定できているが，時定数については実際よりも小さいことがわかる． \\
+時定数に誤差が生じた原因としては式19の解析解を求めることが困難なためにデータ点を用いたことや，$T_1，T_2$を求めるためにグラフから$x_1,x_2$を求める際に誤差が生じたためと考えられる．
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再々6}
+\cfoot{}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=1]{./picture/e6_6.eps}
+  \caption{実験値と同定値}
+  \label{fig13} 
+ \end{center}
+\end{figure}
+
+
+
+\section{まとめ}
+レベル系の同定実験を行うことで，プロセス系への理解が深まった．
+
+
+\newpage
+\pagestyle{fancy}
+\renewcommand{\thepage}{$付録$}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{\thepage}
+\lhead{}
+\cfoot{}
+
+\input{./table/data.tex}
+
+\end{document}
+
+
+
+
+
