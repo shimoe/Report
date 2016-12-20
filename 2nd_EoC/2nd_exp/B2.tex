@@ -19,11 +19,8 @@
 
 
 \section{目的}
-状態フィードバック制御を行うには全状態量をフィードバックする必要がある．
-しかしセンサの不足などによって実際に測定できない状態量が存在する場合には，
-オブザーバを用いて状態量を推定し，フィードバック制御に利用する．本実験で
-は台車の位置制御実験を通じて，オブザーバによる状態フィードバック制御につ
-いて理解を深める．
+状態フィードバック制御を行うには全状態量をフィードバックする必要がある．しかしセンサの不足などによって実際に測定できない状態量が存在する場合には，オブザーバを用いて状態量を推定し，フィードバック制御に利用する．本実験では台車の位置制御実験を通じて，オブザーバによる状態フィードバック制御について理解を深める．
+
 \section{原理}
   \subsection{数式モデル}
   モータの回転による力$T_u$を入力，台車の変位$y$を出力としたとき，運動方程式は次のようになる．
@@ -57,6 +54,34 @@
   \begin{equation}
  G(s) = \frac{Y(s)}{R(s)} = \frac{b_0}{s^2+a_1 s +a_0} \ \ (a_1 = F/M,\ a_0 = b_0 = \alpha h/M)
   \end{equation}
+  これより，$a_0,a_1$が求まれば，$F,M$が計算できる．ここで，2次遅れ系のステップ応答波形$y(t)$における最大行き過ぎ量$y_m$，行き過ぎ時間$t_m$，定常値$y_0$，を用いて次の式から$a_0,a_1$を求める．$y_m$は$t=0$以外で最初に$\dot{y(t) = 0}$となる時点$t_m$で生じていることを利用して，
+  \begin{equation}
+   a_1 = -\frac{1}{t_m}2\ln{(y_m/y_0 - 1)}, \ a_0 = \frac{\pi^2}{t_m^2} + \frac{a_1^2}{4}
+  \end{equation}
+  となる．また，$b_0 = a_0 y_0 /r$である．
+
+  \subsection{同定結果の検証}  
+  出力$y(t)$を求める．ステップ入力$r$のラプラス変換$R(s)=r/s$より，
+  \begin{equation}
+   Y(s) = \frac{b_0}{s^2+a_1 s +a_0}R(s) = \frac{\frac{y_0a_0}{r}}{s^2+a_1 s +a_0} \cdot \frac{r}{s} = \frac{a_0}{s^2+a_1 s +a_0} \cdot \frac{1}{s} \cdot y_0
+  \end{equation}
+  と表せる．ここで，
+  \begin{equation}
+   \frac{a_0}{s^2+a_1 s +a_0} = \frac{\omega_n^2}{s^2+2\xi \omega_n s +\omega_n^2}
+  \end{equation}
+  とおくと，
+  \begin{equation}
+   Y(s) = \frac{\omega_n^2}{s^2+2\xi \omega_n s +\omega_n^2}\cdot \frac{1}{s} \cdot y_0 
+        = y_0 \left( \frac{1}{s} - \frac{s + 2\xi\omega_n^2}{s^2+2\xi \omega_n s +\omega_n^2} \right)
+  \end{equation}
+  となる．これを逆ラプラス変換して以下の式を求める．
+  \begin{equation}
+   y(t) = y_0 \left( 1-\frac{1}{\sqrt{1-\xi^2}}e^{-\beta t} \cos{(\gamma t-\delta)} \right)
+  \end{equation}
+  ただし，$\omega_n = \sqrt{a_0},\ \xi = \frac{a_1}{2\sqrt{a_0}},\ \beta = \xi \omega_n,\ \gamma = \omega_n \sqrt{1-\xi^2},\ \delta = \tan^{-1} \left(\frac{\xi}{\sqrt{1-\xi^2}} \right)$である．この同定結果に基づく時間応答と実験結果を比較し，同定パラメータが妥当か判断して必要なら修正する．
+
+
+
 \section{実験方法}
 
 \section{結果}
@@ -64,3 +89,6 @@
 \section{考察}
 
 \end{document}
+
+
+
