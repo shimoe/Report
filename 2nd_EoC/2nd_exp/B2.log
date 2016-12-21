@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  20 DEC 2016 21:38
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  21 DEC 2016 10:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,26 +130,106 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 21.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 28.
+(Font)              scaled to size 11.53198pt on input line 25.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 28.
+(Font)              scaled to size 11.53198pt on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 29.
+(Font)              <7> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 29.
+(Font)              <5> on input line 26.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 29.
+(Font)              scaled to size 6.72699pt on input line 26.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 29.
+(Font)              scaled to size 4.805pt on input line 26.
 
-[1] [2] (./B2.aux) ) 
+[1]
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 86.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 86.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 4.805pt on input line 86.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 106.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 106.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 106.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 106.
+ [2]
+File: ./picture/exp1.eps Graphic file (type eps)
+ <./picture/exp1.eps>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 141.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 141.
+ [3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 156.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 156.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 156.
+ [4]
+File: ./picture/exp3.eps Graphic file (type eps)
+ <./picture/exp3.eps>
+File: ./picture/exp3_2.eps Graphic file (type eps)
+
+<./picture/exp3_2.eps>
+File: ./picture/exp3_3.eps Graphic file (type eps)
+ <./picture/exp3_3.eps>
+Overfull \vbox (21.99596pt too high) has occurred while \output is active []
+
+
+[5]
+File: ./picture/exp4.eps Graphic file (type eps)
+ <./picture/exp4.eps>
+File: ./picture/exp4_2.eps Graphic file (type eps)
+ <./picture/exp4_2.eps>
+File: ./picture/exp4_3.eps Graphic file (type eps)
+ <./picture/exp4_3.eps>
+Overfull \vbox (21.99596pt too high) has occurred while \output is active []
+
+
+[6]
+File: ./picture/exp5.eps Graphic file (type eps)
+ <./picture/exp5.eps>
+File: ./picture/exp5_2.eps Graphic file (type eps)
+ <./picture/exp5_2.eps>
+File: ./picture/exp5_3.eps Graphic file (type eps)
+ <./picture/exp5_3.eps>
+Overfull \vbox (21.99596pt too high) has occurred while \output is active []
+
+
+[7]
+File: ./picture/exp6.eps Graphic file (type eps)
+ <./picture/exp6.eps>
+File: ./picture/exp6_2.eps Graphic file (type eps)
+ <./picture/exp6_2.eps>
+File: ./picture/exp6_3.eps Graphic file (type eps)
+ <./picture/exp6_3.eps>
+Overfull \vbox (21.99596pt too high) has occurred while \output is active []
+
+
+[8]
+File: ./picture/exp7.eps Graphic file (type eps)
+ <./picture/exp7.eps>
+File: ./picture/exp7_2.eps Graphic file (type eps)
+ <./picture/exp7_2.eps>
+File: ./picture/exp7_3.eps Graphic file (type eps)
+ <./picture/exp7_3.eps>
+Overfull \vbox (21.99596pt too high) has occurred while \output is active []
+
+
+[9] [10] (./B2.aux) ) 
 Here is how much of TeX's memory you used:
- 907 strings out of 495129
- 10327 string characters out of 6182595
- 69038 words of memory out of 5000000
- 4295 multiletter control sequences out of 15000+600000
- 13709 words of font info for 61 fonts, out of 8000000 for 9000
+ 977 strings out of 495129
+ 11177 string characters out of 6182595
+ 71038 words of memory out of 5000000
+ 4336 multiletter control sequences out of 15000+600000
+ 18836 words of font info for 82 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 25i,12n,43p,283b,237s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,12n,43p,559b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on B2.dvi (3 pages, 8000 bytes).
+Output written on B2.dvi (11 pages, 20172 bytes).
