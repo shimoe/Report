@@ -238,6 +238,51 @@
   また，それぞれの速度のグラフにおいて大きく振動している部分があるが，これは速度を実際に計測しておらず，エンコーダの位置情報から速度を算出しているためである．それに伴い，入力電圧も振動している．
 
 
+\newpage
+\section{課題}
+\subsection{併合系の状態方程式}
+併合系とはレギュレータとオブザーバの状態方程式を併合した系である．
+\begin{equation}
+ z = (x_1 \ x_2 \ \hat x_1 \ \hat x_2)^\mathrm{T} 
+\end{equation}
+とおくと，式10,14より
+\begin{eqnarray*}
+ {\bf \dot x = Ax + b}u \\
+ {\bf \dot{\hat x} = kcx + (A - kc)\hat x + b}u \\
+\end{eqnarray*}
+となるので，
+\begin{eqnarray}
+ {\bf \dot z} & = & {\bf(\dot x \ \dot{\hat x})^\mathrm{T}} \nonumber \\
+             & = & \left(\begin{array}{cc}
+		          {\bf A} & 0\\
+			  {\bf kc} & {\bf A-kc} \\
+			 \end{array}\right){\bf z}
+	     + \left(\begin{array}{c}
+		{\bf b}\\
+		{\bf b}\\
+		     \end{array}\right) u
+\end{eqnarray}
+と表せる．
+式20より，特性方程式が求まり，レギュレータ及びオブザーバの極を設定出来る．
+\subsection{制御系のパラメータについて}
+一般的に線形系の状態フィードバック制御における安定性と応答の早さは固有値の実数部によって支配されている．固有値全てを複素平面上の左半面のできるだけ左側に持っていくことが出来れば，系は安定で応答も早くなるはずである．系が可制御のとき，常に状態フィードバックによる極配置は可能である．オブザーバを用いた状態フィードバック制御の場合，状態値と推定値の誤差が0に収束するように式20における$k$を選ぶ．
+
+\begin{thebibliography}{1}
+ \bibitem{1} 嘉納 英明，``現代制御工学-動的システムの解析と制御-''，日刊工業新聞社，1984，pp.161-164,179.
+\end{thebibliography}
+
+\newpage
+\setcounter{page}{1}
+\setcounter{section}{4}
+%\renewcommand{\thepage}{\thepage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{再\thepage}
+\lhead{}
+\cfoot{}
+
+\section{実験結果}
+
 \end{document}
 
 

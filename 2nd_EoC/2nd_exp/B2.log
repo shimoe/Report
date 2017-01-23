@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  21 DEC 2016 10:32
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  18 JAN 2017 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,14 +222,14 @@ File: ./picture/exp7_3.eps Graphic file (type eps)
 Overfull \vbox (21.99596pt too high) has occurred while \output is active []
 
 
-[9] [10] (./B2.aux) ) 
+[9] [10] [11] [1] (./B2.aux) ) 
 Here is how much of TeX's memory you used:
- 977 strings out of 495129
- 11177 string characters out of 6182595
+ 978 strings out of 495129
+ 11180 string characters out of 6182595
  71038 words of memory out of 5000000
- 4336 multiletter control sequences out of 15000+600000
+ 4337 multiletter control sequences out of 15000+600000
  18836 words of font info for 82 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
  25i,12n,43p,559b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on B2.dvi (11 pages, 20172 bytes).
+Output written on B2.dvi (13 pages, 22344 bytes).

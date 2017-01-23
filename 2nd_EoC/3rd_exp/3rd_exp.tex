@@ -33,7 +33,22 @@
     \frac{Q'_0 \sin(a_n x)}{x a_n^3} 
     \cos \{ a_n x(1-e^{-a_n^2 t}) \}
   \end{equation}
-ここで，$a_n$は$\tan(a_n \pi)$
+  ここで，$a_n$は$\tan(a_n \pi) = \frac{\alpha '}{a_n}$の解であり，また，
+  \begin{eqnarray*}
+   \alpha ' = \frac{\alpha L}{\pi}, \ b_n = \frac{\sin(2\pi a_n)}{4a_n}, \ Q'_0 = \frac{L^2 Q_0}{\pi^2 A_m K}
+  \end{eqnarray*}
+  である．ここで，$\alpha$は境界条件を表す定数，$A_m[{\rm m^2}]$は加熱棒の断面積，$L$[m]は加熱棒の長さ，$K[{\rm J/K \cdot m \cdot s}]$は加熱帽の熱伝導率である．式1は位置$x$と時間$t$の関数となるが，ここではある一点$x_0$，すなわち熱電対を取り付けた点に着目した集中定数系とみなし，その近似伝達関数を求める．なお，式1は厳密には無言級数の形で表されるが，三次以上の項は十分に小さいので二次系とみなせる．さらに本実験では簡単のため，近似伝達関数を一次遅れ＋むだ時間の形で導出する．このような近似を行っても実用上はほとんど問題なく，制御系の設計などの処理が簡便になるので，実システムの設計や運用にもよく用いられる．\\
+  さて以下では，求めるプラントの伝達関数$G_p$を次式であ与え，同定実験により未知パラメータ$K_p,T_p,L_p$を決定することを考える．
+  \begin{equation}
+   G_p = \frac{K_p}{1+T_p s} e^{-L_p s}
+  \end{equation}
+
+  \subsection{未知パラメータの同定}
+  本実験ではステップ応答法により未知パラメータの同定を行う．式2にステップ入力$Q_0(s) = A/s$を加えると，出力は
+\begin{equation}
+ \theta (t) = A K_p \left(1-e^{-(t-L_p)/T_p}\right)
+\end{equation}
+となる．ここで$\Delta \theta (t) = \theta(t + h_1) - \theta(t) \ (h_1：データ処理用サンプリング周期)$を定義すると，
 \section{実験方法}
 \section{結果}
 \section{考察}

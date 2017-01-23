@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  23 JAN 2017 14:27
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2016.4.20)  22 JAN 2017 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**3rd_exp.tex
-(./3rd_exp.tex
+**ir.tex
+(./ir.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2011/06/27> patch level 0)
 Babel <3.9h> and hyphenation patterns for 11 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/platex/jsclasses/jsarticle.cls
@@ -83,8 +83,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box42
 \@float@everytoks=\toks17
 \@floatcapt=\box43
-) (./3rd_exp.aux)
-\openout1 = `3rd_exp.aux'.
+) (./ir.aux)
+\openout1 = `ir.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
@@ -118,8 +118,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 15.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 15.
-
-[0
+ [0
 
 ]
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
@@ -130,45 +129,15 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 20.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 13.83836pt on input line 20.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 24.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 24.
 
-
-LaTeX Warning: Reference `fig1' on page 1 undefined on input line 24.
-
-
-LaTeX Warning: Reference `fig2' on page 1 undefined on input line 25.
-
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 28.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 28.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 29.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 29.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 29.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 29.
-[1] [2] (./3rd_exp.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[1] (./ir.aux) ) 
 Here is how much of TeX's memory you used:
- 913 strings out of 495129
- 10433 string characters out of 6182595
- 68038 words of memory out of 5000000
- 4300 multiletter control sequences out of 15000+600000
- 14298 words of font info for 64 fonts, out of 8000000 for 9000
+ 904 strings out of 495129
+ 10284 string characters out of 6182595
+ 64038 words of memory out of 5000000
+ 4292 multiletter control sequences out of 15000+600000
+ 12937 words of font info for 56 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 25i,7n,43p,627b,237s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,6n,43p,200b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 3rd_exp.dvi (3 pages, 7208 bytes).
+Output written on ir.dvi (2 pages, 824 bytes).
