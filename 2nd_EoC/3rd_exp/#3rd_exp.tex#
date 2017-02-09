@@ -1,4 +1,3 @@
-
 \documentclass[11pt,a4paper]{jsarticle}
 \usepackage[dvips]{graphicx}
 \usepackage{fancyhdr}
@@ -145,9 +144,11 @@
 
   \subsection{計算実験}
   チャネル5について未知パラメータを同定した．まず，計測結果にノイズが含まれているので平均を取るサンプル数は10として得られた計測データの移動平均を取った．また，定常状態における温度は計測データの最後20点における平均とした． \\
-得られたデータより$\Delta \theta(t) = \theta(t + h_1) - \theta(t)$を
+得られたデータより$\Delta \theta(t) = \theta(t + h_1) - \theta(t)$から$z(t) = \ln \Delta \theta(t)$を計算し，$t - z(t)$のグラフを作成する．
 
 
+\subsection{制御実験}
+制御実験で得られた
 
 \section{考察}
 
